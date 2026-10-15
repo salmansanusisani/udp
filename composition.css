@@ -1,0 +1,62 @@
+/* Photograph proportions are independent of viewport shape. */
+img { height: auto; }
+.hero-building { width: 100%; height: auto; aspect-ratio: 1453 / 1038; object-fit: contain; }
+.hero-depth { width: min(66vw, 1080px); top: 40%; }
+.hero-heading { top: 20%; }
+.hero-heading h1 { font-size: clamp(70px, 8.4vw, 150px); }
+.hero-type-outline { z-index:5; pointer-events:none; }
+.hero-type-outline h1,.hero-type-outline h1 span { color:transparent; -webkit-text-stroke:.8px #103c2caa; }
+.hero-type-outline h1 { filter:drop-shadow(0 0 .7px #edf1e5); }
+.hero-type-outline .eyebrow,.hero-type-outline .hero-tagline { visibility:hidden; }
+.cloud-layer-front { top:calc(40svh - 5.5vw); bottom:auto; }
+.architecture-photo h2, .architecture-type-outline {
+  position: absolute; top: 7%; left: var(--gutter); right: var(--gutter);
+  font-size: 12.7vw; font-weight: 700; line-height: .82; letter-spacing: -.07em;
+  white-space: nowrap; margin: 0; pointer-events: none;
+}
+.architecture-photo h2 { z-index: 2; color: #f4f2e8; }
+.architecture-photo h2 br, .architecture-type-outline br { display: none; }
+.architecture-photo h2 span, .architecture-type-outline span { display: inline; margin: 0 0 0 .2em; }
+.architecture-type-outline { z-index: 4; color: transparent; -webkit-text-stroke: .65px #f4f2e866; }
+.property-type-outline { position:absolute; top:12%; left:5%; right:5%; font-size:clamp(42px,6.3vw,110px); font-weight:800; letter-spacing:-.065em; line-height:.85; color:transparent; -webkit-text-stroke:.5px #f7f5e86b; z-index:4; pointer-events:none; }
+.glass-scene .property-type-outline { font-size:10vw; top:8%; left:4%; white-space:nowrap; -webkit-text-stroke:.65px #103c2c80; }
+.glass-scene .property-rear-word { color:var(--forest); }
+.courtyard-scene .property-type-outline { font-size:7vw; top:9%; left:4%; -webkit-text-stroke:.5px #103c2c69; }
+.property-scene:not(.glass-scene):not(.courtyard-scene) .property-photo { filter:blur(4px) saturate(.6); opacity:.1; }
+.property-scene:not(.glass-scene):not(.courtyard-scene) .property-foreground { width:100%; left:0; top:14%; height:auto; aspect-ratio:1453 / 1038; object-fit:contain; }
+.architecture-background,.architecture-foreground { object-fit:cover; }
+@media (min-width:1700px) { .hero-depth { width:min(62vw,1300px); top:39%; } .hero-heading { top:18%; } .hero-heading h1 { font-size:10vw; } }
+@media (min-width:651px) and (max-width:1000px) { .hero-depth { width:85vw; top:calc(20svh + 18vw); } .hero-heading h1 { font-size:10.6vw; } .cloud-layer-front { top:calc(20svh + 21vw); } }
+@media (max-width:650px) {
+  .hero-stage { min-height:660px; }
+  .hero-heading { top:21%; }
+  .hero-heading h1 { font-size:15.6vw; line-height:.96; }
+  .hero-depth { width:110vw; top:calc(21svh + 26vw); max-width:510px; }
+  .cloud-layer-front { width:220%; left:-30%; top:calc(21svh + 18vw); bottom:auto; }
+  .cloud-layer-back { width:190%; left:-55%; bottom:-5%; }
+  .hero-hotspot { top:65%; }
+  .hero-bottom { bottom:9%; }
+  .hero-note { background:#f4f5ef70; padding:6px 8px; }
+  /* A wide architectural scene within the phone composition. The full-height
+     crop previously removed most of the building, making it appear narrower. */
+  .architecture-stage { height:82svh; min-height:560px; background:#a9bec0; }
+  .architecture-photo { background:linear-gradient(165deg,#8faeb9,#cdd5c6 62%,#183c30); }
+  .architecture-background,.architecture-foreground {
+    inset:auto; width:142%; height:auto; aspect-ratio:2200 / 1418;
+    left:-21%; bottom:13%; object-fit:contain; object-position:center;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,black 20%,black 82%,transparent);
+    mask-image:linear-gradient(to bottom,transparent,black 20%,black 82%,transparent);
+  }
+  .architecture-photo h2,.architecture-type-outline { top:auto; bottom:calc(13% + 70vw); font-size:12.1vw; left:4vw; right:4vw; }
+  .architecture-bottom { bottom:5%; }
+  .architecture-caption { display:none; }
+  .property-scene { height:auto; aspect-ratio:1.13; }
+  .courtyard-scene { height:auto; aspect-ratio:.88; }
+  .glass-scene { height:auto; aspect-ratio:1.36; }
+  .property-scene:not(.glass-scene):not(.courtyard-scene) .property-foreground { top:15%; }
+  .property-type-outline { font-size:14vw; }
+  .courtyard-scene .property-type-outline { font-size:19vw; }
+  .glass-scene .property-rear-word,.glass-scene .property-type-outline { font-size:13vw; top:13%; }
+}
+@media (max-width:650px) and (max-height:720px) { .hero-heading { top:19%; } .hero-depth { top:calc(19svh + 26vw); } .hero-hotspot { top:64%; } }
+@media (prefers-reduced-motion:reduce) { .architecture-story { height:auto; } }
